@@ -1,16 +1,23 @@
 Web Security Research Lab
 
-Documentation of hands-on vulnerability analysis and remediation.
+This repository documents hands-on analysis, exploitation, and remediation of critical web vulnerabilities. The goal of this project is to demonstrate a "Full-Spectrum" understanding of security—from identifying a flaw to implementing a production-ready fix.
 
-Vulnerabilities Analyzed
-* **SQL Injection (SQLi):** Demonstrated authentication bypass and data extraction.
-* **Remote Code Execution (RCE):** Exploited unsafe system calls to gain shell access.
-* **Cross-Site Scripting (XSS):** Analyzed DOM-based vulnerabilities and script injection.
+I utilized a **ParrotOS** lab environment to build a controlled, vulnerable Flask application. Each vulnerability was tested using manual exploitation techniques and industry-standard tools before being patched with secure coding practices.
 
-Remediation Strategies
-* Implementation of **Parameterized Queries** for database security.
-* Migrated to `subprocess` with `shell=False` for OS command safety.
-* Applied context-aware **Output Encoding** for XSS prevention.
+1. SQL Injection (SQLi)
+* **Vulnerability:** Unsanitized input in authentication queries.
+* **Remediation:** Migrated from raw string formatting to **Parameterized Queries** to prevent database manipulation.
 
----
-*Developed in a ParrotOS Lab Environment.*
+2. Remote Code Execution (RCE)
+* **Vulnerability:** Unsafe use of `os.system()` allowing command injection.
+* **Remediation:** Replaced shell calls with the `subprocess` module using `shell=False` to isolate commands from the system shell.
+
+3. Cross-Site Scripting (XSS)
+* **Vulnerability:** Reflected input without context-aware encoding.
+* **Remediation:** Implemented **Jinja2 Auto-escaping** and manual input sanitization to prevent script execution in the browser.
+
+Tech Stack
+* **OS:** Parrot Security OS
+* **Language:** Python 3.x
+* **Framework:** Flask
+* **Database:** SQLite3
