@@ -1,4 +1,4 @@
-eb Security Research Lab
+Web Security Research Lab
 Owner: 5m3thNetw0rk  
 Focus: Vulnerability Research, Threat Analysis, and Offensive Security Tooling.
 
