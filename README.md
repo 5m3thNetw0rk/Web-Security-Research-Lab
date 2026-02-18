@@ -1,23 +1,23 @@
-web-security-research-lab
+eb Security Research Lab
+Owner: 5m3thNetw0rk  
+Focus: Vulnerability Research, Threat Analysis, and Offensive Security Tooling.
 
-This repository documents hands-on analysis, exploitation, and remediation of critical web vulnerabilities. The goal of this project is to demonstrate a "Full-Spectrum" understanding of security—from identifying a flaw to implementing a production-ready fix.
+Technical Arsenal & Tooling
+This repository documents my usage of industry-standard tools across the Cyber Kill Chain.
 
-I utilized a ParrotOS lab environment to build a controlled, vulnerable Flask application. Each vulnerability was tested using manual exploitation techniques and industry-standard tools before being patched with secure coding practices.
+| Tool | Category | Usage Context |
+| :--- | :--- | :--- |
+| **Nmap** | Reconnaissance | Network mapping, service version detection, and NSE scripting. |
+| **Dirb / Gobuster** | Reconnaissance | Directory bruteforcing to identify hidden web assets. |
+| **Burp Suite** | Web Analysis | Intercepting proxy, request manipulation, and payload testing. |
+| **Metasploit** | Exploitation | Automated exploit delivery and payload management. |
+| **Netcat** | Post-Exploitation | Listener configuration, reverse shells, and banner grabbing. |
+| **Wireshark** | Traffic Analysis | Packet capture (PCAP) analysis to identify C2 traffic. |
 
-1. SQL Injection (SQLi)
-Vulnerability: Unsanitized input in authentication queries.
-Remediation: Migrated from raw string formatting to **Parameterized Queries** to prevent database manipulation.
+---
 
-2. Remote Code Execution (RCE)
-Vulnerability: Unsafe use of `os.system()` allowing command injection.
-Remediation: Replaced shell calls with the `subprocess` module using `shell=False` to isolate commands from the system shell.
+Research & Writeups
+[Exploit-01: VSFTPD Backdoor Analysis](./writeups/exploit-01-nmap-metasploit.md) - Nmap, Metasploit, Threat Intel
+[Log-01: Network Traffic Analysis](./writeups/log-analysis-wireshark.md) - Wireshark, Netcat, Dirb
 
-3. Cross-Site Scripting (XSS)
-Vulnerability: Reflected input without context-aware encoding.
-Remediation: Implemented **Jinja2 Auto-escaping** and manual input sanitization to prevent script execution in the browser.
-
-Tech Stack
-OS: Parrot Security OS
-Language: Python 3.x
-Framework: Flask
-Database: SQLite3
+---
